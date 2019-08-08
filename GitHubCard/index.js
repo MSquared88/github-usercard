@@ -6,10 +6,11 @@ axios.get('https://api.github.com/users/MSquared88')
   .then((response) => {
     const matthew = newGitUser(response)
     cards.appendChild(matthew)
-    console.log(response)
-
   })
-  // .then((res) )
+
+  .catch((err) => {
+      console.log(err)
+    })
 const cards = document.querySelector('.cards')
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -33,35 +34,47 @@ Using that array, iterate over it, requesting data for each user, creating a new
 user, and adding that card to the DOM.
 */
 
-const followersArray = [
-  'https://api.github.com/users/MWeberLambdaweb19',
-  'https://api.github.com/users/JaxAtwood', 
-  'https://api.github.com/users/chrisbonifacio',
-  'https://api.github.com/users/yoshimii',
-  'https://api.github.com/users/ajflowers',
-  'https://api.github.com/users/MosesSupposes',
-  'https://api.github.com/users/briannakeune'
-];
+// const followersArray = [
+//   'https://api.github.com/users/MWeberLambdaweb19',
+//   'https://api.github.com/users/JaxAtwood', 
+//   'https://api.github.com/users/chrisbonifacio',
+//   'https://api.github.com/users/yoshimii',
+//   'https://api.github.com/users/ajflowers',
+//   'https://api.github.com/users/MosesSupposes',
+//   'https://api.github.com/users/briannakeune'
+// ];
 
-followersArray.forEach((item) => {
-  axios.get(item)
+
+
+
+axios.get('https://api.github.com/users/MSquared88/followers')
+.then((res) => {
+  let followers = []
+  res.data.forEach((ele) => {
+    followers.push(ele.url)
+  })
+  followers.forEach((ele) => {
+    axios.get(ele)
     .then((response) => {
       let follower  = newGitUser(response)
       cards.appendChild(follower)
-      
     })
+  })   
 })
 
 
-  // axios.get(res)
-  //   .then((res) => {
-
-  //   })
-  //   .then((response) => {
-  //     let follower  = newGitUser(response)
-  //     cards.appendChild(follower)
+// followersArray.forEach((item) => {
+//   axios.get(item)
+//     .then((response) => {
+//       let follower  = newGitUser(response)
+//       cards.appendChild(follower)
       
-  //   })
+//     })
+//     .catch((err) => {
+//       console.log(err)
+//     })
+// })
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
 Using DOM methods and properties, create a component that will return the following DOM element:
