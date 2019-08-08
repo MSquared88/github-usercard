@@ -7,10 +7,9 @@ axios.get('https://api.github.com/users/MSquared88')
     const matthew = newGitUser(response)
     cards.appendChild(matthew)
   })
-
-  .catch((err) => {
-      console.log(err)
-    })
+.catch((err) => {
+    alert(err)
+  })
 const cards = document.querySelector('.cards')
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -44,6 +43,17 @@ user, and adding that card to the DOM.
 //   'https://api.github.com/users/briannakeune'
 // ];
 
+// followersArray.forEach((item) => {
+//   axios.get(item)
+//     .then((response) => {
+//       let follower  = newGitUser(response)
+//       cards.appendChild(follower)
+      
+//     })
+//     .catch((err) => {
+//       console.log(err)
+//     })
+// })
 
 
 
@@ -61,19 +71,11 @@ axios.get('https://api.github.com/users/MSquared88/followers')
     })
   })   
 })
+.catch((err) => {
+  alert(err)
+})
 
 
-// followersArray.forEach((item) => {
-//   axios.get(item)
-//     .then((response) => {
-//       let follower  = newGitUser(response)
-//       cards.appendChild(follower)
-      
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//     })
-// })
 
 
 /* Step 3: Create a function that accepts a single object as its only argument,
