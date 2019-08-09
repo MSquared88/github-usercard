@@ -98,7 +98,7 @@ body {
   flex-wrap: wrap;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
-  background-color: #FFF;
+  background-color: black;
   margin-bottom: 30px;
 }
 
@@ -114,17 +114,21 @@ body {
 
 .card .name {
   font-size: 3.4rem;
+  color: white
 }
 
 .card p {
   font-size: 1.4rem;
   margin-bottom: 3px;
+  color: white
+
 }
 
 .card .username {
   font-size: 1.8rem;
   font-style: italic;
   margin: 3px 0 10px;
+  color: white
 }
 
 
@@ -134,10 +138,11 @@ body {
 
 .btn {
   bottom: 0; 
+  font-weight: 600;
   height: 30px;
   margin-right: 20px;
   left: 50%;
-  font-size: 12px;
+  font-size: 1.5rem;
   color: black;
   cursor: pointer;
   /* transform: translate(-50%); */
