@@ -137,6 +137,12 @@ function newGitUser(obj){
   const userProfile = document.createElement('p')
   userProfile.classList.add('none')
 
+  const userGraph = document.createElement('img')
+  userGraph.classList.add('calendar')
+  userGraph.classList.add('none')
+  userGraph.src =src= `http://ghchart.rshah.org/${obj.data.login}` 
+
+
   //nested inside of userProfile
   const userProfileLink = document.createElement('a')
   userProfileLink.href = obj.data.html_url
@@ -174,6 +180,8 @@ function newGitUser(obj){
   userInfo.appendChild(userFollowers)
   userInfo.appendChild(userFollowing)
   userInfo.appendChild(userBio)
+  newUser.appendChild(userGraph)
+
   
 
   userProfile.appendChild(userProfileLink)
@@ -186,17 +194,13 @@ function newGitUser(obj){
     userHandle.classList.toggle('none')
     userLocation.classList.toggle('none')
     userImg.classList.toggle('none')
-
-
-
-
-
+    userGraph.classList.toggle('none')
   })
-  
+
 
   return newUser
 }
-
+  // GitHubCalendar(".calendar", "MSquared88");
 
 /* List of LS Instructors Github username's: 
   tetondan
@@ -205,3 +209,4 @@ function newGitUser(obj){
   luishrd
   bigknell
 */
+
