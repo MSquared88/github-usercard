@@ -139,20 +139,24 @@ function newGitUser(obj){
 
   //nested inside of newUser
   const userBio = document.createElement('p')
-  userBio.textContent = obj.data.bio
+  userBio.textContent = `bio: ${obj.data.bio}`
+
+  const expandBtn = document.createElement('button')
+  expandBtn.classList.add('btn')
 
   newUser.appendChild(userImg)
-
   newUser.appendChild(userInfo)
+
   userInfo.appendChild(userName)
   userInfo.appendChild(userHandle)
-
   userInfo.appendChild(userProfile)
-  userProfile.appendChild(userProfileLink)
-
   userInfo.appendChild(userFollowers)
   userInfo.appendChild(userFollowing)
   userInfo.appendChild(userBio)
+  
+
+  userProfile.appendChild(userProfileLink)
+
 
   
 
