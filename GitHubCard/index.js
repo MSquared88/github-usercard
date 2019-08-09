@@ -106,6 +106,8 @@ function newGitUser(obj){
   //nested inside of newUser
   const userImg = document.createElement('img')
   userImg.src = obj.data.avatar_url
+  userImg.classList.add('none')
+  
 
   //nested inside of newUser
   const userInfo = document.createElement('div')
@@ -120,35 +122,54 @@ function newGitUser(obj){
   const userHandle = document.createElement('p')
   userHandle.classList.add('username')
   userHandle.textContent = obj.data.login
+  userHandle.classList.add('none')
+
+  
+
+  //nested inside of userInfo
+  const userLocation = document.createElement('p')
+  userLocation.textContent = `Location: ${obj.data.location}`
+  userLocation.classList.add('none')
+
+  
   
   //nested inside of userInfo
   const userProfile = document.createElement('p')
+  userProfile.classList.add('none')
 
   //nested inside of userProfile
   const userProfileLink = document.createElement('a')
   userProfileLink.href = obj.data.html_url
   userProfileLink.textContent = obj.data.html_url
+
   
   //nested inside of newUser
   const userFollowers = document.createElement('p')
   userFollowers.textContent = `Followers: ${obj.data.followers} `
+  userFollowers.classList.add('none')
+
   
   //nested inside of newUser
   const userFollowing = document.createElement('p')
   userFollowing.textContent = `Following: ${obj.data.following} `
+  userFollowing.classList.add('none')
 
   //nested inside of newUser
   const userBio = document.createElement('p')
   userBio.textContent = `bio: ${obj.data.bio}`
+  userBio.classList.add('none')
 
   const expandBtn = document.createElement('button')
   expandBtn.classList.add('btn')
-
+  expandBtn.textContent = 'Expand'
+  
+  newUser.appendChild(expandBtn)
   newUser.appendChild(userImg)
   newUser.appendChild(userInfo)
 
   userInfo.appendChild(userName)
   userInfo.appendChild(userHandle)
+  userInfo.appendChild(userLocation)
   userInfo.appendChild(userProfile)
   userInfo.appendChild(userFollowers)
   userInfo.appendChild(userFollowing)
@@ -157,7 +178,20 @@ function newGitUser(obj){
 
   userProfile.appendChild(userProfileLink)
 
+  expandBtn.addEventListener('click', e => {
+    userBio.classList.toggle('none')
+    userFollowing.classList.toggle('none')
+    userFollowers.classList.toggle('none')
+    userProfile.classList.toggle('none')
+    userHandle.classList.toggle('none')
+    userLocation.classList.toggle('none')
+    userImg.classList.toggle('none')
 
+
+
+
+
+  })
   
 
   return newUser
